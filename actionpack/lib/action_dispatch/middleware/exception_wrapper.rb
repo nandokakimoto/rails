@@ -20,10 +20,11 @@ module ActionDispatch
     )
 
     cattr_accessor :rescue_templates, default: Hash.new("diagnostics").merge!(
-      "ActionView::MissingTemplate"         => "missing_template",
-      "ActionController::RoutingError"      => "routing_error",
-      "AbstractController::ActionNotFound"  => "unknown_action",
-      "ActionView::Template::Error"         => "template_error"
+      "ActionView::MissingTemplate"             => "missing_template",
+      "ActionController::MissingExactTemplate"  => "missing_exact_template",
+      "ActionController::RoutingError"          => "routing_error",
+      "AbstractController::ActionNotFound"      => "unknown_action",
+      "ActionView::Template::Error"             => "template_error"
     )
 
     attr_reader :backtrace_cleaner, :exception, :line_number, :file
